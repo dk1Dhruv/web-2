@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function sum(){
+            let a=parseInt(prompt("enter the value"))
+            if(a>=18){
+               let c=confirm("do you want to continue")
+                if(c){
+                    alert("you are eligible")
+                }
+                else{
+                    alert("you are not eligible")
+                }
+               
+                
+            }
+            else{
+                alert("you are not eligible")
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" onclick="sum()" value="check eligibility">
+</body>
+</html>
