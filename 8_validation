@@ -1,0 +1,37 @@
+//validation for the form
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function validate() {
+           let name=document.getElementById("name").value;
+           if(name=="" || typeof name != "string")
+           alert("pls check the detail");
+        return false;
+         let email=document.getElementById("email").value;
+           if(email=="" || email.indexOf("@") == -1 || email.indexOf(".") == -1)
+           alert("pls enter the email");
+        return false;
+        let password=document.getElementById("password").value;
+           if(password=="" && password.length<6);
+           alert("pls enter the password");
+        return false;
+        let re_enter_password=document.getElementById("repassword").value
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Form Validation Example</h1>
+    <form name="myForm" onsubmit="return validate()" method="post">
+        Name: <input type="text" name="name" id="name"><br><br>
+        Email: <input type="text" name="email" id="email"><br><br>
+        Password: <input type="password" name="password" id="password"><br><br>
+        re_enter_password: <input type="re-password" name="repasword" id ="repassword"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

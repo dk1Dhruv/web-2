@@ -1,0 +1,36 @@
+<!-- function by student -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         function student(name,rollno,pincode,city){
+        this.name=name;
+        this.rollno=rollno;
+        this.pincode=pincode;
+        this.city=city;
+
+    this.display=function(){
+        console.log(this.name);
+
+    };
+         }
+
+
+         let s1=new student("dhruv",101,273263,"firozabad");
+          let s2=new student("panwar",102,273363,"firozabad");
+           let s3=new student("mailik",103,273263,"firozabad");
+
+           console.log(s1);
+        //    this both are same
+           s1.display();
+           console.log(s1.name);
+    </script>
+ </head>
+ <body>
+    
+ </body>
+ </html>
+
