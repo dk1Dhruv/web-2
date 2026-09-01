@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+            let bank={
+          
+            holder_name:"kashyap",
+            holder_number:123456,
+            account_balance:10000,
+            
+         
+          deposit_balance:function(){
+           let newDeposite=prompt("eneter thre value")
+            this.account_balance += newDeposite;
+          },
+           withdraw_balance:function(newWithdrawal){
+            this.account_balance -= newWithdrawal;
+          },
+          current_balance:function(){
+            console.log(this.holder_name);
+            console.log(this.holder_number);
+            
+             if(this.account_balance<1000){
+                console.log("insufficient balance");
+            }
+            else{
+            console.log(this.account_balance);
+            }
+          },
+
+
+        }
+
+bank.deposit_balance(5000);
+bank.withdraw_balance(2000);
+bank.current_balance();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
