@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+            let abes={
+            p_id:101,
+            p_name:"kashyap",
+            price: 1000,
+            quantity:1,
+          total_price:function(){
+            return this.price*this.quantity;
+          },
+          update_value:function(newQuantity){
+            this.quantity=newQuantity;
+          },
+          product_info:function(){
+            console.log(this.p_id);
+            console.log(this.price);
+            console.log(this.quantity);
+          }
+
+        }
+abes.total_price();
+abes.update_value(100);
+abes.product_info();
+
+    </script>
+</head>
+<body>
+    lorem15
+  
+</body>
+</html>
