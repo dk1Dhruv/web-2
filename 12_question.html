@@ -34,9 +34,23 @@
 
         }
 
-bank.deposit_balance();
-bank.withdraw_balance(2000);
-bank.current_balance();
+let choice = prompt(
+    "Choose an option:\n1. Deposit\n2. Withdraw\n3. Current Balance"
+);
+
+if (choice == 1) {
+    bank.deposit_balance();
+}
+else if (choice == 2) {
+    let amount = Number(prompt("Enter withdrawal amount:"));
+    bank.withdraw_balance(amount);
+}
+else if (choice == 3) {
+    bank.current_balance();
+}
+else {
+    console.log("Invalid choice");
+}
 
     </script>
 </head>
