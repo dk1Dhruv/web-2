@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <script>
+    let firstName="ayush";
+let lastName="panwar";
+console.log(`my first name is ${firstName}`);
+console.log(`my first name is ${lastName}`);
+console.log(`my name is : ${firstName} ${lastName}`);
+// function fullname(first,last){
+//     console.log(first);
+//     console.log(last);
+// }
+let name= new fullname(firstName,lastName);
+console.log(firstName.concat(" "+lastName));
+function fullname(first,last){
+    return `${first} ${last}`;
+}
+
+let completename=`hello ${fullname(firstName,lastName)}`;
+console.log(completename);  
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>
