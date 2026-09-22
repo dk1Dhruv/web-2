@@ -2,26 +2,26 @@
 // Create a class Student having rollNo, name, and marks. Initialize these properties using a constructor. Create an instance method displayResult() that displays student details and determines whether the student has passed. Create a static property/method to maintain and display the total number of Student objects created. Create at least three Student objects and demonstrate all methods.
 // Concepts Covered: Class, Object, Constructor, Instance Method, Static Method
 
-class student{
-    static count=0;
- constructor(name,roll,marks){
-this.name=name;
-this.roll=roll;
-this.marks=marks;
-student.count++;
-}
-displayResult(){
-console.log(this.name, this.roll, this.marks);
-if(this.marks>=35){
-    console.log("Pass");
-} else {
-    console.log("Fail");
-}
-}
+class student {
+    static count = 0;
+    constructor(name, roll, marks) {
+        this.name = name;
+        this.roll = roll;
+        this.marks = marks;
+        student.count++;
+    }
+    displayResult() {
+        console.log(this.name, this.roll, this.marks);
+        if (this.marks >= 35) {
+            console.log("Pass");
+        } else {
+            console.log("Fail");
+        }
+    }
 };
-let s1=new student("dhruv",101,90);
-let s2=new student("anuj",102,30);
-let s3=new student("rahul",103,50);
+let s1 = new student("dhruv", 101, 90);
+let s2 = new student("anuj", 102, 30);
+let s3 = new student("rahul", 103, 50);
 s1.displayResult();
 s2.displayResult();
 s3.displayResult();
@@ -32,42 +32,42 @@ console.log("--------------------------------------------------\n");
 // Create a class BankAccount with accountNo, holderName, and balance. Use a constructor to initialize the account. Provide instance methods deposit(amount), withdraw(amount), and displayBalance(). Withdrawal should not be allowed when the requested amount is greater than the available balance. Create a static method bankInfo() that displays the bank name and general banking information. Create two account objects and perform different transactions on them.
 // Concepts Covered: Constructor, Objects, Instance Methods, Static Method, Object State
 
-class BankAccount{
+class BankAccount {
 
- constructor(accountNo, holderName,balance){
-this.accountNo=accountNo;
-this.holderName=holderName;
-this.balance=balance;
-}   
-
-deposit(amount){
-    this.balance += amount;
-    console.log("Deposited:", amount, "New Balance:", this.balance);
-}
-withdraw(amount){
-    if(amount> this.balance){
-        console.log("Insufficient Balance");
-    } else{
-        this.balance -= amount;
-        console.log("Withdrawn:", amount, "New Balance:", this.balance);
+    constructor(accountNo, holderName, balance) {
+        this.accountNo = accountNo;
+        this.holderName = holderName;
+        this.balance = balance;
     }
-}
-static bankinfo(){
-    console.log("Bank Name: XYZ Bank");
-    console.log("Branch: Main Branch");
-    console.log("IFSC Code: XYZ123456");
-}
-displayInfo(){
-       BankAccount.bankinfo();
-    console.log("Account No:", this.accountNo);
-    console.log("Holder Name:", this.holderName);
-    console.log("Balance:", this.balance);
- 
-}
+
+    deposit(amount) {
+        this.balance += amount;
+        console.log("Deposited:", amount, "New Balance:", this.balance);
+    }
+    withdraw(amount) {
+        if (amount > this.balance) {
+            console.log("Insufficient Balance");
+        } else {
+            this.balance -= amount;
+            console.log("Withdrawn:", amount, "New Balance:", this.balance);
+        }
+    }
+    static bankinfo() {
+        console.log("Bank Name: XYZ Bank");
+        console.log("Branch: Main Branch");
+        console.log("IFSC Code: XYZ123456");
+    }
+    displayInfo() {
+        BankAccount.bankinfo();
+        console.log("Account No:", this.accountNo);
+        console.log("Holder Name:", this.holderName);
+        console.log("Balance:", this.balance);
+
+    }
 
 };
-let b1=new BankAccount(12345,"dhruv",1000);
-let b2=new BankAccount(12346,"anuj",2000);
+let b1 = new BankAccount(12345, "dhruv", 1000);
+let b2 = new BankAccount(12346, "anuj", 2000);
 b1.deposit(500);
 b1.withdraw(200);
 b1.displayInfo();
@@ -125,24 +125,24 @@ console.log("--------------------------------------------------\n");
 // Concepts Covered: Objects as Arguments, Static Method, Instance Method, Inheritance, Overriding
 
 
-class Product{
-    
- constructor(productId, productName,price){
-this.productId=productId;
-this.productName=productName;
-this.price=price;
-} 
-getDiscountedPrice(discount) {
-    discount/=100;
-    discount*=this.price;
-     return this.price-=discount;
-}
-  display() {
+class Product {
+
+    constructor(productId, productName, price) {
+        this.productId = productId;
+        this.productName = productName;
+        this.price = price;
+    }
+    getDiscountedPrice(discount) {
+        discount /= 100;
+        discount *= this.price;
+        return this.price -= discount;
+    }
+    display() {
         console.log("Product ID:", this.productId);
         console.log("Product Name:", this.productName);
         console.log("Price:", this.price);
     }
-     static compareProducts(p1, p2) {
+    static compareProducts(p1, p2) {
         if (p1.price > p2.price) {
             console.log(p1.productName, "has higher price");
         } else if (p2.price > p1.price) {
@@ -197,54 +197,60 @@ class Vehicle {
         return 0;
     }
 
-    // Static method
     static platformName() {
         console.log("Booking Platform: ABC Cabs");
     }
+
+
 }
 
-// Derived class Car
 class Car extends Vehicle {
     constructor(vehicleNo, driverName, distance) {
         super(vehicleNo, driverName, distance);
     }
 
-    // Method overriding
     calculateFare() {
         return this.distance * 15;
     }
+
+    display() {
+        Vehicle.platformName();
+        console.log("\nCar Details:");
+        console.log("Vehicle No:", car.vehicleNo);
+        console.log("Driver Name:", car.driverName);
+        console.log("Distance:", car.distance, "km");
+        console.log("Car Fare: Rs.", car.calculateFare());
+    }
 }
 
-// Derived class Bike
 class Bike extends Vehicle {
     constructor(vehicleNo, driverName, distance) {
         super(vehicleNo, driverName, distance);
     }
-
-    // Method overriding
     calculateFare() {
         return this.distance * 8;
     }
+
+    display() {
+        Vehicle.platformName();
+        console.log("\nBike Details:");
+        console.log("Vehicle No:", bike.vehicleNo);
+        console.log("Driver Name:", bike.driverName);
+        console.log("Distance:", bike.distance, "km");
+        console.log("Bike Fare: Rs.", bike.calculateFare());
+    }
 }
+
 
 // Creating objects
 let car = new Car("CAR101", "Rahul", 20);
 let bike = new Bike("BIKE202", "Amit", 25);
+car.display();
+bike.display();
 
-// Display platform name
-Vehicle.platformName();
 
-// Display car details
-console.log("\nCar Details:");
-console.log("Vehicle No:", car.vehicleNo);
-console.log("Driver Name:", car.driverName);
-console.log("Distance:", car.distance, "km");
-console.log("Car Fare: Rs.", car.calculateFare());
+console.log("--------------------------------------------------\n");
 
-// Display bike details
-console.log("\nBike Details:");
-console.log("Vehicle No:", bike.vehicleNo);
-console.log("Driver Name:", bike.driverName);
-console.log("Distance:", bike.distance, "km");
-console.log("Bike Fare: Rs.", bike.calculateFare());
+
+
 
