@@ -118,8 +118,67 @@ console.log("Employee Salary:", emp.calculateSalary());
 console.log("Manager Salary:", manager.calculateSalary());
 
 
+console.log("--------------------------------------------------\n");
+
+// 4. E-Commerce Product System
+// Create a class Product with productId, productName, and price. Add an instance method getDiscountedPrice(discount) to calculate the final price. Create a static method compareProducts(p1, p2) that accepts two Product objects and displays the product having the higher price. Create a derived class Electronics having an additional property warranty. Override a suitable display method so that electronics-specific information is also displayed.
+// Concepts Covered: Objects as Arguments, Static Method, Instance Method, Inheritance, Overriding
+
+
+class Product{
+    
+ constructor(productId, productName,price){
+this.productId=productId;
+this.productName=productName;
+this.price=price;
+} 
+getDiscountedPrice(discount) {
+    discount/=100;
+    discount*=this.price;
+     return this.price-=discount;
+}
+  display() {
+        console.log("Product ID:", this.productId);
+        console.log("Product Name:", this.productName);
+        console.log("Price:", this.price);
+    }
+     static compareProducts(p1, p2) {
+        if (p1.price > p2.price) {
+            console.log(p1.productName, "has higher price");
+        } else if (p2.price > p1.price) {
+            console.log(p2.productName, "has higher price");
+        } else {
+            console.log("Both products have same price");
+        }
+    }
+};
+class Electronics extends Product {
+    constructor(productId, productName, price, warranty) {
+        super(productId, productName, price);
+        this.warranty = warranty;
+    }
+    display() {
+        console.log("Product ID:", this.productId);
+        console.log("Product Name:", this.productName);
+        console.log("Price:", this.price);
+        console.log("Warranty:", this.warranty);
+    }
+}
+
+let p1 = new Product(101, "Shoes", 2000);
+let p2 = new Electronics(102, "Laptop", 50000, "2 Years");
+console.log("Product 1:");
+p1.display();
+
+console.log("\nProduct 2:");
+p2.display();
+
+console.log("\nDiscounted Price of Shoes:", p1.getDiscountedPrice(10));
+
+console.log("\nComparison:");
+Product.compareProducts(p1, p2);
 
 
 
-
+console.log("--------------------------------------------------\n");
 
