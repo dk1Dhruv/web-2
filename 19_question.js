@@ -198,7 +198,7 @@ class Vehicle {
     }
 
     static platformName() {
-        console.log("Booking Platform: ABC Cabs");
+        console.log("Booking Platform:AK travels");
     }
 
 
@@ -210,16 +210,15 @@ class Car extends Vehicle {
     }
 
     calculateFare() {
-        return this.distance * 15;
+        this.distance *=15;
     }
 
     display() {
         Vehicle.platformName();
         console.log("\nCar Details:");
-        console.log("Vehicle No:", car.vehicleNo);
-        console.log("Driver Name:", car.driverName);
-        console.log("Distance:", car.distance, "km");
-        console.log("Car Fare: Rs.", car.calculateFare());
+        console.log("Vehicle No:", this.vehicleNo);
+        console.log("Driver Name:", this.driverName);
+        console.log("Distance:", this.distance, "km");
     }
 }
 
@@ -228,7 +227,7 @@ class Bike extends Vehicle {
         super(vehicleNo, driverName, distance);
     }
     calculateFare() {
-        return this.distance * 8;
+        this.distance *= 8;
     }
 
     display() {
@@ -243,8 +242,8 @@ class Bike extends Vehicle {
 
 
 // Creating objects
-let car = new Car("CAR101", "Rahul", 20);
-let bike = new Bike("BIKE202", "Amit", 25);
+let car = new Car("CAR101", "aunj", 20);
+let bike = new Bike("BIKE202", "panwar", 25);
 car.display();
 bike.display();
 
@@ -252,5 +251,95 @@ bike.display();
 console.log("--------------------------------------------------\n");
 
 
+/*6. Hospital Management System
+Create a base class Person with id, name, and age. Create a derived class Doctor containing specialization and consultationFee, and another derived class Patient containing disease and roomNo. Use constructors and super() for initialization. Define displayDetails() in Person and override it in both Doctor and Patient to display their specific information. Add a static member/method in Person to count and display the total number of persons created in the system. Create at least two doctors and two patients and display their details.
+Concepts Covered: Hierarchical Inheritance, Constructor, super(), Static Member, Instance Method, Method Overriding
+ */
+
+// Base class
+class Person {
+    static count = 0;
+
+    constructor(id, name, age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+
+        Person.count++;
+    }
+
+    // Instance method
+    displayDetails() {
+        console.log("ID:", this.id);
+        console.log("Name:", this.name);
+        console.log("Age:", this.age);
+    }
+
+    // Static method
+    static displayCount() {
+        console.log("\nTotal Persons:", Person.count);
+    }
+}
+
+// Derived class Doctor
+class Doctor extends Person {
+    constructor(id, name, age, specialization, consultationFee) {
+        super(id, name, age);
+        this.specialization = specialization;
+        this.consultationFee = consultationFee;
+    }
+
+    // Method overriding
+    displayDetails() {
+        console.log("ID:", this.id);
+        console.log("Name:", this.name);
+        console.log("Age:", this.age);
+        console.log("Specialization:", this.specialization);
+        console.log("Consultation Fee: Rs.", this.consultationFee);
+    }
+}
+
+// Derived class Patient
+class Patient extends Person {
+    constructor(id, name, age, disease, roomNo) {
+        super(id, name, age);
+        this.disease = disease;
+        this.roomNo = roomNo;
+    }
+
+    // Method overriding
+    displayDetails() {
+        console.log("ID:", this.id);
+        console.log("Name:", this.name);
+        console.log("Age:", this.age);
+        console.log("Disease:", this.disease);
+        console.log("Room No:", this.roomNo);
+    }
+}
+
+// Creating Doctor objects
+let doctor1 = new Doctor(101, "Dr. Rahul", 40, "Cardiologist", 1000);
+let doctor2 = new Doctor(102, "Dr. Amit", 45, "Neurologist", 1200);
+
+// Creating Patient objects
+let patient1 = new Patient(201, "Rohit", 25, "Fever", 101);
+let patient2 = new Patient(202, "Ankit", 30, "Diabetes", 102);
+
+// Display Doctor details
+console.log("Doctor 1:");
+doctor1.displayDetails();
+
+console.log("\nDoctor 2:");
+doctor2.displayDetails();
+
+// Display Patient details
+console.log("\nPatient 1:");
+patient1.displayDetails();
+
+console.log("\nPatient 2:");
+patient2.displayDetails();
+
+// Display total number of persons
+Person.displayCount();
 
 
