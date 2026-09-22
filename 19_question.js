@@ -77,3 +77,49 @@ b2.displayInfo();
 
 console.log("--------------------------------------------------\n");
 
+// 3. Employee and Manager Payroll System
+// Create a base class Employee containing id, name, and basicSalary. Initialize them using a constructor and create a method calculateSalary() that returns the basic salary. Create a derived class Manager that adds an incentive property. Use super() to initialize inherited properties and override calculateSalary() so that a manager's total salary is calculated as basicSalary + incentive. Create objects of both classes and display their salaries.
+// Concepts Covered: Inheritance, extends, super(), Constructor, Method Overriding
+// 
+// Base class
+class Employee {
+    constructor(id, name, basicSalary) {
+        this.id = id;
+        this.name = name;
+        this.basicSalary = basicSalary;
+    }
+
+    calculateSalary() {
+        return this.basicSalary;
+    }
+}
+
+// Derived class
+class Manager extends Employee {
+    constructor(id, name, basicSalary, incentive) {
+        super(id, name, basicSalary);
+        this.incentive = incentive;
+    }
+
+    // Method overriding
+    calculateSalary() {
+        return this.basicSalary + this.incentive;
+    }
+}
+
+// Employee object
+let emp = new Employee(101, "Rahul", 30000);
+
+// Manager object
+let manager = new Manager(102, "Amit", 50000, 10000);
+
+// Display salaries
+console.log("Employee Salary:", emp.calculateSalary());
+console.log("Manager Salary:", manager.calculateSalary());
+
+
+
+
+
+
+
