@@ -182,3 +182,69 @@ Product.compareProducts(p1, p2);
 
 console.log("--------------------------------------------------\n");
 
+// 5. Online Cab Booking System
+// Create a base class Vehicle having vehicleNo, driverName, and distance. Provide a method calculateFare() in the base class. Create two derived classes Car and Bike. Override calculateFare() such that a car charges Rs. 15 per km while a bike charges Rs. 8 per km. Use constructors and super() appropriately. Also create a static method in Vehicle to display the common booking platform name. Create objects of Car and Bike and calculate their fares for different distances.
+// Concepts Covered: Inheritance, Constructor Chaining, Static Method, Method Overriding, Runtime Behavior
+// Base class
+class Vehicle {
+    constructor(vehicleNo, driverName, distance) {
+        this.vehicleNo = vehicleNo;
+        this.driverName = driverName;
+        this.distance = distance;
+    }
+
+    calculateFare() {
+        return 0;
+    }
+
+    // Static method
+    static platformName() {
+        console.log("Booking Platform: ABC Cabs");
+    }
+}
+
+// Derived class Car
+class Car extends Vehicle {
+    constructor(vehicleNo, driverName, distance) {
+        super(vehicleNo, driverName, distance);
+    }
+
+    // Method overriding
+    calculateFare() {
+        return this.distance * 15;
+    }
+}
+
+// Derived class Bike
+class Bike extends Vehicle {
+    constructor(vehicleNo, driverName, distance) {
+        super(vehicleNo, driverName, distance);
+    }
+
+    // Method overriding
+    calculateFare() {
+        return this.distance * 8;
+    }
+}
+
+// Creating objects
+let car = new Car("CAR101", "Rahul", 20);
+let bike = new Bike("BIKE202", "Amit", 25);
+
+// Display platform name
+Vehicle.platformName();
+
+// Display car details
+console.log("\nCar Details:");
+console.log("Vehicle No:", car.vehicleNo);
+console.log("Driver Name:", car.driverName);
+console.log("Distance:", car.distance, "km");
+console.log("Car Fare: Rs.", car.calculateFare());
+
+// Display bike details
+console.log("\nBike Details:");
+console.log("Vehicle No:", bike.vehicleNo);
+console.log("Driver Name:", bike.driverName);
+console.log("Distance:", bike.distance, "km");
+console.log("Bike Fare: Rs.", bike.calculateFare());
+
