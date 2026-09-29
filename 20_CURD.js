@@ -1,15 +1,31 @@
-const EventEmitter = require('events');
+// const EventEmitter= require('events');
+// // here   EventEmitter predefine
+// const b= new EventEmitter();
+// b.on('greet',(name)=>
+// {
+//     console.log(`welcome  ${name} in class B`);
+// })
+// b.emit('greet',("dhruv"));
 
-const b = new EventEmitter();
+// b.on('exit',(num)=>
+// {
+//     console.log(`welcome  ${num} in class B`);
+// })
+// b.emit('exit',(100));
 
-b.on('greet', (name) => {
-    console.log(`Welcome ${name} in class B`);
+// partical 2: we canot create a button  directly we create a button 
+const EventEmitter = require("events");
+
+class Button extends EventEmitter {
+    click() {
+        this.emit("click");
+    }
+}
+
+const button = new Button();
+
+button.on("click", () => {
+    console.log("Button Clicked");
 });
 
-b.emit('greet', 'Dhruv');
-
-b.on('exit', (num) => {
-    console.log(`Welcome ${num} in class B`);
-});
-
-b.emit('exit', 100);
+button.click();
