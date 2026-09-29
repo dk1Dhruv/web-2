@@ -242,8 +242,8 @@ class Bike extends Vehicle {
 
 
 // Creating objects
-let car = new Car("CAR101", "aunj", 20);
-let bike = new Bike("BIKE202", "panwar", 25);
+let car = new Car("UP14DU3365", "aunj", 20);
+let bike = new Bike("UP14AB1234", "panwar", 25);
 car.display();
 bike.display();
 
@@ -256,7 +256,6 @@ Create a base class Person with id, name, and age. Create a derived class Doctor
 Concepts Covered: Hierarchical Inheritance, Constructor, super(), Static Member, Instance Method, Method Overriding
  */
 
-// Base class
 class Person {
     static count = 0;
 
@@ -267,21 +266,17 @@ class Person {
 
         Person.count++;
     }
-
-    // Instance method
     displayDetails() {
         console.log("ID:", this.id);
         console.log("Name:", this.name);
         console.log("Age:", this.age);
     }
 
-    // Static method
     static displayCount() {
         console.log("\nTotal Persons:", Person.count);
     }
 }
 
-// Derived class Doctor
 class Doctor extends Person {
     constructor(id, name, age, specialization, consultationFee) {
         super(id, name, age);
@@ -289,7 +284,6 @@ class Doctor extends Person {
         this.consultationFee = consultationFee;
     }
 
-    // Method overriding
     displayDetails() {
         console.log("ID:", this.id);
         console.log("Name:", this.name);
@@ -299,7 +293,6 @@ class Doctor extends Person {
     }
 }
 
-// Derived class Patient
 class Patient extends Person {
     constructor(id, name, age, disease, roomNo) {
         super(id, name, age);
@@ -307,7 +300,6 @@ class Patient extends Person {
         this.roomNo = roomNo;
     }
 
-    // Method overriding
     displayDetails() {
         console.log("ID:", this.id);
         console.log("Name:", this.name);
@@ -317,29 +309,21 @@ class Patient extends Person {
     }
 }
 
-// Creating Doctor objects
-let doctor1 = new Doctor(101, "Dr. Rahul", 40, "Cardiologist", 1000);
-let doctor2 = new Doctor(102, "Dr. Amit", 45, "Neurologist", 1200);
+let doctor1 = new Doctor(101, "Dr. DHRUV", 40, "Cardiologist", 1000);
+let doctor2 = new Doctor(102, "Dr. ANUJ", 45, "Neurologist", 1200);
 
-// Creating Patient objects
-let patient1 = new Patient(201, "Rohit", 25, "Fever", 101);
-let patient2 = new Patient(202, "Ankit", 30, "Diabetes", 102);
+let patient1 = new Patient(201, "PANWAR", 25, "PILES,HERNIA,ERECTILE DYSFUNCTION", 101);
+let patient2 = new Patient(202, "MALIK", 30, "Diabetes", 102);
 
-// Display Doctor details
 console.log("Doctor 1:");
 doctor1.displayDetails();
 
 console.log("\nDoctor 2:");
 doctor2.displayDetails();
 
-// Display Patient details
 console.log("\nPatient 1:");
 patient1.displayDetails();
 
 console.log("\nPatient 2:");
 patient2.displayDetails();
-
-// Display total number of persons
 Person.displayCount();
-
-
