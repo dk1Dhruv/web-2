@@ -61,3 +61,7 @@ class student {
 let s1=new student();
 s1.fullname();
 
+
+
+
+   
